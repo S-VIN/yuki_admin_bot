@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  bot:
+    image: vinstp/yuki_admin_bot:latest
+
+    restart: always
+
+    environment:
+      API_ID: 'xxx'
+      API_HASH: 'xxx'
+      CHANNEL_USERNAME: 'xxx'  # username of channel after / in link. Example: 'zlomysly' for link https://t.me/zlomysly
+#      ADMIN_USER_ID: 'xxx'  # user id for send updates. Default - send updates to saved messages
+#      CHECK_INTERVAL: 300  # in seconds, wait until check, default 300
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+    volumes:
+      - /home/stepan-vinokurov/Data/yuki_admin_bot_db:/home/data  # use yours volume for tg session db
